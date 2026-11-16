@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Poles</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #005A9C;
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #005A9C;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: #00457a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Fake Poles</h1>
+
+        <form>
+            <label for="poleId">Pole ID</label>
+            <input
+                type="text"
+                id="poleId"
+                name="poleId"
+                readonly
+            >
+
+            <label for="comments">Comments</label>
+            <textarea
+                id="comments"
+                name="comments"
+                placeholder="Enter your comments here..."
+            ></textarea>
+
+            <button type="submit" class="submit-btn">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        document.getElementById('poleId').value =
+            params.get('pole_id') || '';
+    </script>
+
+</body>
+</html>
