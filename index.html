@@ -291,17 +291,30 @@ async function submitNomination() {
 
         console.log(result);
 
-        if (
-            result.addResults &&
-            result.addResults[0] &&
-            result.addResults[0].success
-        ) {
+if (
+    result.addResults &&
+    result.addResults[0] &&
+    result.addResults[0].success
+) {
 
-            document.getElementById(
-                'successMessage'
-            ).style.display = 'block';
+    document.getElementById(
+        'successMessage'
+    ).style.display = 'block';
 
-        } else {
+    // Reset user-entered fields
+
+    document.getElementById('comments').value = '';
+    document.getElementById('firstName').value = '';
+    document.getElementById('surname').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('unitNumber').value = '';
+    document.getElementById('street').value = '';
+    document.getElementById('suburb').value = '';
+    document.getElementById('state').value = 'NSW';
+    document.getElementById('postcode').value = '';
+
+} else {
 
             document.getElementById(
                 'errorMessage'
